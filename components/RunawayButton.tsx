@@ -9,6 +9,7 @@ const REJECTION_MESSAGES = [
   "eg ghilaki ar mushaobs meore scade",
   "ar mushaobstqo eg ghilaki",
   "meore ghilaki scade aba",
+  "Yes roa magas unda daachiro"
 ] as const;
 
 type Position = {
@@ -107,6 +108,14 @@ export function RunawayButton({ onRejectedAttempt }: RunawayButtonProps) {
     rejectAndMove();
   }
 
+  function handlePointerEnter(event: PointerEvent<HTMLButtonElement>) {
+    if (event.pointerType !== "mouse") {
+      return;
+    }
+
+    rejectAndMove();
+  }
+
   function handleClick(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
 
@@ -127,14 +136,15 @@ export function RunawayButton({ onRejectedAttempt }: RunawayButtonProps) {
   }
 
   return (
-    <span className="inline-flex h-12 w-16 items-center justify-center">
+    <span className="inline-flex h-14 w-20 items-center justify-center">
       <button
         ref={buttonRef}
         aria-label="No, but this button refuses to cooperate"
-        className="z-50 rounded-full border border-purple-200 bg-white px-5 py-3 text-sm font-semibold text-purple-600 shadow-sm transition-[background-color,border-color,box-shadow,left,top] duration-150 ease-out hover:border-purple-300 hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 active:scale-95"
+        className="z-50 rounded-full border border-purple-200 bg-white px-6 py-4 text-base font-semibold text-purple-600 shadow-sm transition-[background-color,border-color,box-shadow,left,top] duration-150 ease-out hover:border-purple-300 hover:bg-purple-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 active:scale-95"
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         onPointerDown={handlePointerDown}
+        onPointerEnter={handlePointerEnter}
         style={
           position
             ? {

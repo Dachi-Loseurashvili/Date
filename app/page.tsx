@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <main className="date-bg relative flex min-h-svh items-center justify-center overflow-x-hidden px-4 py-6 sm:px-6">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-purple-400 via-fuchsia-300 to-sky-300" />
-      <section className="relative w-full max-w-md transition-all duration-300 ease-out">
+      <section className="relative w-full max-w-md transition-all duration-300 ease-out sm:max-w-[37rem]">
         {screen === "invitation" ? (
           <InvitationCard onAccept={() => setScreen("planner")} />
         ) : null}
