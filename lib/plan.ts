@@ -1,8 +1,8 @@
 export const DATE_OPTIONS = [
   "Coffee",
-  "Dinner",
-  "Movie",
-  "Gaseirneba",
+  "Restorani",
+  "Kino",
+  "Gaseirneba da temebi",
   "Siurprizi (me avarchev)",
   "sxva idea (instagramze momcere)",
 ] as const;

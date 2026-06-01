@@ -39,7 +39,11 @@ export function MusicPlayer() {
     }
 
     function syncDuration() {
-      setDuration(player.duration);
+      setDuration(Number.isFinite(player.duration) ? player.duration : 0);
+    }
+
+    function syncPlaybackState() {
+      setIsPlaying(!player.paused);
     }
 
     function handleEnded() {
@@ -50,12 +54,19 @@ export function MusicPlayer() {
     player.addEventListener("timeupdate", syncTime);
     player.addEventListener("loadedmetadata", syncDuration);
     player.addEventListener("durationchange", syncDuration);
+    player.addEventListener("play", syncPlaybackState);
+    player.addEventListener("pause", syncPlaybackState);
     player.addEventListener("ended", handleEnded);
+    syncDuration();
+    syncTime();
+    syncPlaybackState();
 
     return () => {
       player.removeEventListener("timeupdate", syncTime);
       player.removeEventListener("loadedmetadata", syncDuration);
       player.removeEventListener("durationchange", syncDuration);
+      player.removeEventListener("play", syncPlaybackState);
+      player.removeEventListener("pause", syncPlaybackState);
       player.removeEventListener("ended", handleEnded);
     };
   }, []);
@@ -69,12 +80,12 @@ export function MusicPlayer() {
 
     if (audio.paused) {
       await audio.play();
-      setIsPlaying(true);
+      setDuration(Number.isFinite(audio.duration) ? audio.duration : duration);
+      setCurrentTime(audio.currentTime);
       return;
     }
 
     audio.pause();
-    setIsPlaying(false);
   }
 
   function skipBy(seconds: number) {

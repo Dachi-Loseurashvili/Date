@@ -21,7 +21,7 @@ export function InvitationCard({ onAccept }: InvitationCardProps) {
           date invite ninucas dachisgan
         </p>
         <h1 className="text-balance text-4xl font-bold leading-tight text-purple-950 sm:text-5xl">
-          camoxval chemtan ertad dateze?
+          camoxval chemtan dateze?
         </h1>
         
 
