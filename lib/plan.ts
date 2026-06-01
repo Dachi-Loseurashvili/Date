@@ -8,7 +8,7 @@ export const DATE_OPTIONS = [
 ] as const;
 
 export const PLAN_YEAR = "2026";
-export const PLAN_MIN_DATE = `${PLAN_YEAR}-01-01`;
+export const PLAN_MIN_DATE = `${PLAN_YEAR}-06-01`;
 export const PLAN_MAX_DATE = `${PLAN_YEAR}-12-31`;
 
 export type DateType = (typeof DATE_OPTIONS)[number];

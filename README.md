@@ -46,7 +46,7 @@ When the visitor clicks `Lock in the mission`, the app sends this payload to
 }
 ```
 
-The planner only accepts dates from `2026-01-01` through `2026-12-31`.
+The planner only accepts dates from `2026-06-01` through `2026-12-31`.
 
 If `DATE_PLAN_WEBHOOK_URL` is configured, the API route forwards that JSON to
 the webhook URL and returns success or failure JSON to the frontend.
