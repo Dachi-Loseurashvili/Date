@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 const siteTitle = "Ninuca da Dachi";
-const siteDescription = "date invite ninucas dachisgan";
+const siteDescription = "ninucas dachisgan";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ninucadadachi.com"),
