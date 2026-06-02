@@ -1,13 +1,30 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
 
+const siteTitle = "Ninuca da Dachi";
+const siteDescription = "date invite ninucas dachisgan";
+
 export const metadata: Metadata = {
-  title: "Ninuca da Dachi",
-  description: "A playful one-page date invitation.",
+  metadataBase: new URL("https://ninucadadachi.com"),
+  title: siteTitle,
+  description: siteDescription,
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: "https://ninucadadachi.com",
+    siteName: siteTitle,
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 type RootLayoutProps = Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>;
 
 export default function RootLayout({ children }: RootLayoutProps) {
