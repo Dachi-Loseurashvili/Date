@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BloomingFlowers } from "@/components/BloomingFlowers";
 import { RunawayButton } from "@/components/RunawayButton";
 
 type InvitationCardProps = {
@@ -15,8 +16,9 @@ export function InvitationCard({ onAccept }: InvitationCardProps) {
       <span aria-hidden className="decor-heart decor-heart-one" />
       <span aria-hidden className="decor-heart decor-heart-two" />
       <span aria-hidden className="decor-sparkle decor-sparkle-one" />
+      <BloomingFlowers variant="invitation" />
 
-      <div className="relative">
+      <div className="relative z-10">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-purple-500 sm:text-sm">
           date invite ninucas dachisgan
         </p>
