@@ -9,6 +9,7 @@ import {
   type DateType,
   type PlanApiResponse,
 } from "@/lib/plan";
+import { FateWheel } from "@/components/FateWheel";
 
 type DatePlannerProps = {
   onComplete: (plan: DatePlan, configured: boolean) => void;
@@ -106,6 +107,8 @@ export function DatePlanner({ onComplete }: DatePlannerProps) {
       </div>
 
       <form className="mt-7 space-y-5" onSubmit={handleSubmit}>
+        <FateWheel />
+
         <label className="block">
           <span className="mb-2 block text-sm font-semibold text-purple-900">
             Date type
