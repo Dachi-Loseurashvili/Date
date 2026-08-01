@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
 import type { ReactNode } from "react";
 import "./globals.css";
 
-const siteTitle = "Ninuca da Dachi";
-const siteDescription = "ninucas dachisgan";
+const siteTitle = "National Girlfriend's Day";
+const siteDescription = "A private romantic puzzle, memories, and playlist.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ninucadadachi.com"),
@@ -22,6 +21,14 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
   },
+  robots: {
+    follow: false,
+    index: false,
+    googleBot: {
+      follow: false,
+      index: false,
+    },
+  },
 };
 
 type RootLayoutProps = Readonly<{
@@ -31,10 +38,7 @@ type RootLayoutProps = Readonly<{
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body>
-        {children}
-        <Analytics />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

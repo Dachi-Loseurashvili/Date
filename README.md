@@ -1,8 +1,18 @@
-# Date Invitation
+# National Girlfriend's Day
 
-A small playful one-page dating invitation built with Next.js App Router,
-TypeScript, and Tailwind CSS. It has no database, no auth, and one optional
-serverless webhook integration.
+A static romantic interactive experience built with Next.js App Router,
+TypeScript, and Tailwind CSS.
+
+Flow:
+
+1. Password gate with passcode `0722`.
+2. Full-screen flower rain transition.
+3. Tap-to-swap picture puzzle.
+4. Memory photos, local music cards, and a cursive text animation unlock after
+   the puzzle is solved.
+
+There is no database, backend, auth provider, external state service, analytics,
+or external audio service.
 
 ## Install
 
@@ -18,54 +28,71 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-## Environment
+## Puzzle Photo
 
-Copy the example environment file:
+The puzzle image path is:
 
-```bash
-cp .env.example .env.local
+```text
+public/assets/puzzle-photo.jpg
 ```
 
-Optional variable:
+Add or replace that file manually when the real couple photo is ready. Use a
+square JPG for the cleanest puzzle result.
 
-```bash
-DATE_PLAN_WEBHOOK_URL=
+If the file is missing, the site still renders with a clean placeholder puzzle.
+
+## Editable Content
+
+Edit these constants in `lib/girlfriendDay.ts`:
+
+- `PASSCODE`
+- `PUZZLE_IMAGE_SRC`
+- `LOVE_SCRIPT_LINES`
+- `MEMORY_PHOTOS`
+- `PLAYLIST_SONGS`
+
+## Local Audio
+
+Music files live in:
+
+```text
+public/audio/
 ```
 
-## Receiving Submissions
+Cover images live in:
 
-When the visitor clicks `Lock in the mission`, the app sends this payload to
-`POST /api/plan`:
-
-```json
-{
-  "dateType": "Coffee",
-  "selectedDate": "2026-06-12",
-  "selectedTime": "19:30",
-  "submittedAt": "2026-05-31T16:30:00.000Z"
-}
+```text
+public/assets/music-covers/
 ```
 
-The planner only accepts dates from `2026-06-01` through `2026-12-31`.
+Each playlist entry in `PLAYLIST_SONGS` points to one local MP3 and one cover
+image. Browsers require a user click before audio plays, so there is no autoplay.
 
-If `DATE_PLAN_WEBHOOK_URL` is configured, the API route forwards that JSON to
-the webhook URL and returns success or failure JSON to the frontend.
+## Privacy
 
-If `DATE_PLAN_WEBHOOK_URL` is not configured:
+This is not real security. The passcode is a playful client-side gate.
 
-- The API route does not crash.
-- In development, it logs the submitted plan to the server console.
-- It returns success with `configured: false`.
-- The confirmation screen tells the visitor to screenshot the plan and send it.
+The project includes:
+
+```text
+public/robots.txt
+```
+
+with:
+
+```text
+User-agent: *
+Disallow: /
+```
+
+The app metadata also sets `noindex` and `nofollow`.
 
 ## Deploy to Vercel
 
-1. Push the project to a Git repository.
-2. Import the repository in Vercel.
+1. Push the project to GitHub.
+2. Import or redeploy the project in Vercel.
 3. Use the default Next.js settings.
-4. Add `DATE_PLAN_WEBHOOK_URL` in Vercel project settings if submissions should
-   be forwarded somewhere.
-5. Deploy.
+4. No environment variables are required.
 
 ## Scripts
 
