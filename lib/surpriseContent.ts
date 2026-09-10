@@ -77,7 +77,7 @@ export const PHOTO_MANIFEST = [
     height: 1097,
     alt: "ჩვენი კოცნა ღამით",
     caption: "არ მყოფნის შენი და ჩვენი მოგონებების ყურება",
-    chapter: "მიყვარს შენი",
+    chapter: "მიყვარს შენი კოცნა და",
     rotation: 1.5,
   },
   {

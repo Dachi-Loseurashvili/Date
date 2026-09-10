@@ -16,10 +16,7 @@ export function HeroScene() {
           <p className="eyebrow eyebrow-light">{PAGE_COPY.heroEyebrow}</p>
           <h1 id="hero-title">{PAGE_COPY.heroTitle}</h1>
           <p className="hero-description">{PAGE_COPY.heroBody}</p>
-          <a className="primary-link" href="#memories">
-            <span>{PAGE_COPY.heroCta}</span>
-            <span aria-hidden="true">↓</span>
-          </a>
+          <JourneyLink className="hero-cta-desktop" />
         </div>
 
         <figure className="hero-portrait">
@@ -43,9 +40,24 @@ export function HeroScene() {
             {heroPhoto.caption}
           </figcaption>
         </figure>
+
+        <JourneyLink className="hero-cta-mobile" />
       </div>
 
       <div className="hero-curtain" aria-hidden="true" />
     </section>
+  );
+}
+
+type JourneyLinkProps = {
+  className: string;
+};
+
+function JourneyLink({ className }: JourneyLinkProps) {
+  return (
+    <a className={`primary-link ${className}`} href="#memories">
+      <span>{PAGE_COPY.heroCta}</span>
+      <span aria-hidden="true">↓</span>
+    </a>
   );
 }

@@ -188,6 +188,15 @@ a {
   transform: translateY(-2px);
 }
 
+.hero-cta-desktop {
+  display: none;
+}
+
+.hero-cta-mobile {
+  justify-self: center;
+  margin-top: -0.5rem;
+}
+
 .hero-portrait {
   position: relative;
   width: min(78vw, 25rem);
@@ -1400,6 +1409,14 @@ a {
 
   .hero-copy {
     text-align: left;
+  }
+
+  .hero-cta-desktop {
+    display: inline-flex;
+  }
+
+  .hero-cta-mobile {
+    display: none;
   }
 
   .hero-copy h1 {
