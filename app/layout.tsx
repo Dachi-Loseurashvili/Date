@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 
-const siteTitle = "National Girlfriend's Day";
-const siteDescription = "A private romantic puzzle, memories, and playlist.";
+const siteTitle = "ჩვენი პატარა ამბავი";
+const siteDescription = "ჩვენი ფოტოები, მოგონებები და ერთი წერილი ნინუცისთვის.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ninucadadachi.com"),
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
   },
@@ -31,13 +31,19 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#170d2c",
+  width: "device-width",
+  initialScale: 1,
+};
+
 type RootLayoutProps = Readonly<{
   children: ReactNode;
 }>;
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="ka">
       <body>{children}</body>
     </html>
   );

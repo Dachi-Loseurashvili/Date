@@ -1,104 +1,62 @@
-# National Girlfriend's Day
+# A Little Atlas of Us
 
-A static romantic interactive experience built with Next.js App Router,
-TypeScript, and Tailwind CSS.
+A static, mobile-first romantic experience built with Next.js App Router,
+TypeScript, and CSS. The page moves through a moonlit introduction, a curated
+scrapbook of memories, an interactive keepsake constellation, and a final
+paper-style love letter.
 
-Flow:
+There is no database, backend, authentication, analytics, or autoplay media.
 
-1. Password gate with passcode `0722`.
-2. Full-screen flower rain transition.
-3. Tap-to-swap picture puzzle.
-4. Memory photos, local music cards, and a cursive text animation unlock after
-   the puzzle is solved.
-
-There is no database, backend, auth provider, external state service, analytics,
-or external audio service.
-
-## Install
+## Run locally
 
 ```bash
 npm install
-```
-
-## Run Locally
-
-```bash
 npm run dev
 ```
 
 Open `http://localhost:3000`.
 
-## Puzzle Photo
+## Edit the surprise
 
-The puzzle image path is:
-
-```text
-public/assets/puzzle-photo.jpg
-```
-
-Add or replace that file manually when the real couple photo is ready. Use a
-square JPG for the cleanest puzzle result.
-
-If the file is missing, the site still renders with a clean placeholder puzzle.
-
-## Editable Content
-
-Edit these constants in `lib/girlfriendDay.ts`:
-
-- `PASSCODE`
-- `PUZZLE_IMAGE_SRC`
-- `LOVE_SCRIPT_LINES`
-- `MEMORY_PHOTOS`
-- `PLAYLIST_SONGS`
-
-## Local Audio
-
-Music files live in:
+All editable copy and progression data lives in:
 
 ```text
-public/audio/
+lib/surpriseContent.ts
 ```
 
-Cover images live in:
+In that file:
+
+- `PHOTO_MANIFEST` controls image paths, captions, alt text, and framing data.
+- `MEMORY_SEQUENCE` controls the gallery order.
+- `PAGE_COPY` controls section and interaction copy.
+- `KEEPSAKES` controls the tap-to-open cards.
+- `FINAL_LETTER` contains the complete love letter in one block.
+
+Browser-ready photo copies live in:
 
 ```text
-public/assets/music-covers/
+public/assets/memories/
 ```
 
-Each playlist entry in `PLAYLIST_SONGS` points to one local MP3 and one cover
-image. Browsers require a user click before audio plays, so there is no autoplay.
+The original source photos under `stuff/pics/` are not used at runtime and are
+not modified by the app.
 
 ## Privacy
 
-This is not real security. The passcode is a playful client-side gate.
+The app metadata sets `noindex` and `nofollow`. `public/robots.txt` also asks all
+crawlers not to index any route. These controls are advisory, not access
+control. After deployment, anything under `public/`, including personal photos,
+is still accessible to anyone who has its direct URL.
 
-The project includes:
+## Deployment
 
-```text
-public/robots.txt
-```
+The existing Vercel/Next.js deployment setup is unchanged. No environment
+variables are required.
 
-with:
-
-```text
-User-agent: *
-Disallow: /
-```
-
-The app metadata also sets `noindex` and `nofollow`.
-
-## Deploy to Vercel
-
-1. Push the project to GitHub.
-2. Import or redeploy the project in Vercel.
-3. Use the default Next.js settings.
-4. No environment variables are required.
-
-## Scripts
+## Checks
 
 ```bash
-npm run dev
-npm run lint
 npm run typecheck
+npm run lint
 npm run build
 ```
