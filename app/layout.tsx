@@ -1,49 +1,53 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
-
-const siteTitle = "ჩვენი პატარა ამბავი";
-const siteDescription = "ჩვენი ფოტოები, მოგონებები და ერთი წერილი ნინუცისთვის.";
+import "./experience.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ninucadadachi.com"),
-  title: siteTitle,
-  description: siteDescription,
-  openGraph: {
-    title: siteTitle,
-    description: siteDescription,
-    url: "https://ninucadadachi.com",
-    siteName: siteTitle,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
-  },
+  title: "Somewhere, only us.",
+  description:
+    "A small world, made of all our little things. For Ninutsi, from Dachi.",
   robots: {
     follow: false,
     index: false,
-    googleBot: {
-      follow: false,
-      index: false,
-    },
+    googleBot: { follow: false, index: false },
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#170d2c",
+  themeColor: "#102a25",
   width: "device-width",
   initialScale: 1,
 };
 
-type RootLayoutProps = Readonly<{
-  children: ReactNode;
-}>;
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="ka">
+    <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/instrument-serif.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/instrument-serif-italic.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/dm-sans.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

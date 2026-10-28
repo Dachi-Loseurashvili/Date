@@ -1,5 +1,5 @@
-import { SurpriseApp } from "@/components/surprise/SurpriseApp";
+import { Universe } from "@/components/universe/Universe";
 
 export default function Home() {
-  return <SurpriseApp />;
+  return <Universe />;
 }
