@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import "./globals.css";
-import "./experience.css";
+import "../globals.css";
+import "../experience.css";
 
 export const metadata: Metadata = {
   title: "Somewhere, only us.",

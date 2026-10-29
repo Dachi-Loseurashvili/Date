@@ -1,4 +1,21 @@
 /* The record, the sky, the darkroom, and the constellation. */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 70;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  column-gap: 28px;
+  background: var(--page-bg);
+}
+.masthead-tools {
+  gap: 24px;
+}
+.masthead-playback {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
 .universe {
   position: relative;
   isolation: isolate;
@@ -1373,6 +1390,15 @@
   }
 }
 @media (max-width: 1100px) {
+  .masthead {
+    column-gap: 18px;
+  }
+  .masthead-tools {
+    gap: 16px;
+  }
+  .masthead-playback {
+    gap: 12px;
+  }
   .prelude {
     min-height: max(650px, calc(100svh - 76px));
     gap: 4%;
@@ -1539,10 +1565,19 @@
 }
 @media (max-width: 700px) {
   .masthead {
-    z-index: 45;
+    height: auto;
+    min-height: 132px;
+    padding: 10px 0 12px;
+    grid-template-columns: 1fr auto;
+    row-gap: 10px;
   }
   .masthead-tools {
-    gap: 13px;
+    display: contents;
+  }
+  .masthead-playback {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
   }
   .sound-toggle {
     min-width: 91px;

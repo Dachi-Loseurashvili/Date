@@ -14,6 +14,7 @@ import { Sky } from "./Sky";
 import { Transit } from "./Transit";
 import { useSoundtrack } from "./useSoundtrack";
 import { LetterDialog, PhotoDialog } from "./Dialogs";
+import { VersionMenu } from "@/components/versions/VersionMenu";
 
 export function Universe() {
   const [chapter, setChapter] = useState<Chapter>("entrance");
@@ -119,39 +120,42 @@ export function Universe() {
           {entered ? "A SMALL WORLD, JUST FOR TWO" : "FOR NINUTSI. FROM DACHI."}
         </span>
         <div className="masthead-tools">
-          {entered ? (
-            <>
-              <button
-                className={`sound-toggle ${sound === "on" ? "is-playing" : "sound-is-off"}`}
-                onClick={toggle}
-                aria-label={
-                  sound === "on"
-                    ? "Turn soundtrack off"
-                    : "Turn soundtrack on: Always Forever by Cults"
-                }
-                aria-pressed={sound === "on"}
-                disabled={sound === "loading"}
-              >
-                <span className="sound-bars" aria-hidden="true">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <i key={i} />
-                  ))}
+          <div className="masthead-playback">
+            {entered ? (
+              <>
+                <button
+                  className={`sound-toggle ${sound === "on" ? "is-playing" : "sound-is-off"}`}
+                  onClick={toggle}
+                  aria-label={
+                    sound === "on"
+                      ? "Turn soundtrack off"
+                      : "Turn soundtrack on: Always Forever by Cults"
+                  }
+                  aria-pressed={sound === "on"}
+                  disabled={sound === "loading"}
+                >
+                  <span className="sound-bars" aria-hidden="true">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <i key={i} />
+                    ))}
+                  </span>
+                  <span>
+                    SOUND{" "}
+                    {sound === "on" ? "ON" : sound === "loading" ? "…" : "OFF"}
+                  </span>
+                </button>
+                <span className="masthead-index">
+                  {String(chapterIndex + 1).padStart(2, "0")}
+                  <i>/</i>05
                 </span>
-                <span>
-                  SOUND{" "}
-                  {sound === "on" ? "ON" : sound === "loading" ? "…" : "OFF"}
-                </span>
-              </button>
-              <span className="masthead-index">
-                {String(chapterIndex + 1).padStart(2, "0")}
-                <i>/</i>05
+              </>
+            ) : (
+              <span className="prelude-header-note">
+                A PERSONAL RECORD &nbsp; / &nbsp; 001
               </span>
-            </>
-          ) : (
-            <span className="prelude-header-note">
-              A PERSONAL RECORD &nbsp; / &nbsp; 001
-            </span>
-          )}
+            )}
+          </div>
+          <VersionMenu prominent />
         </div>
       </header>
       {entered && sound === "error" && (

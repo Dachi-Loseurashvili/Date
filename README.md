@@ -12,6 +12,18 @@ The experience opens with a personal record player. **Turn the music on** starts
 
 The sky responds to the music when Web Audio is available. Audio playback works without visual analysis. Canvas effects are bounded, pause in background tabs, and respect reduced motion; scene transitions have a motion-free fallback. Dialogs support Escape, arrow keys, and focus restoration.
 
+## Past versions
+
+The sticky header has a large, labelled **Past versions · 3** dropdown on every screen. On phones it occupies its own full-width row. It opens three restored, self-contained pages:
+
+- **Flowers**: `/versions/flowers` — `9f5a161e580aebf483009a800e5921eb2f474539`
+- **Girlfriend’s day**: `/versions/girlfriends-day` — `ac1af7a4cad362bd47a10180d6c985646fff22c9`
+- **Our little story**: `/versions/our-little-story` — `82a91ab6b09078ec638840dd833086b7e84fa048` (`grammar mistake fix`)
+
+Each archive has its original design, text, images, and music, plus a **Back to now** link. The original Girlfriend’s day password and puzzle are preserved. The archived Flowers form is a local preview and sends nothing.
+
+Snapshots live in `legacy/`, their assets in `public/versions/`, and the menu data in `lib/versions.ts`. See [archive notes](legacy/README.md) for provenance and compatibility changes. The current root page and layout live in `app/(present)/`; the URL remains `/`.
+
 ## Run
 
 ```bash
